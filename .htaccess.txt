@@ -1,0 +1,4 @@
+<Directory "/var/www/html/iepenlaan/db">
+   order allow,deny
+   deny from all
+</Directory>

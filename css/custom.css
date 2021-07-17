@@ -1,0 +1,16 @@
+.bounding-box {
+  background-image: url(../img/tisch.jpg);
+  background-size: cover;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+.main-content{
+  padding-top:80px;
+}
+.row-space div{
+  padding-top:15px;
+  padding-bottom:15px;
+}
