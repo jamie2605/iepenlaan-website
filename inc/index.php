@@ -1,3 +1,8 @@
+---
+title: Startseite
+layout: default
+---
+
 <!-- Carousel
  ================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
