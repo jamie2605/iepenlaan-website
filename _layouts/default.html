@@ -64,19 +64,17 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <?php
 
-                  foreach($pages as $file => $name){
-                      if($file=="404"){continue;}
-                      if($file == $page){
-                        echo "<li class='active'>";
-                      }else{
-                        echo "<li>";
-                      }
-                      echo "<a href='index.php?page=".$file."'>".$name."</a></li>";
-                  }
-
-                ?>
+                {% assign mypages = site.pages | sort: "order" %}
+                  {% for page_i in mypages %}
+                    {% if page_i.title == page.title %}
+                    <li class='active'>
+                    {% else %}
+                    <li>
+                    {% endif %}
+                    <a href="{{ page_i.url | absolute_url  }}">{{ page_i.title }}</a>
+                  </li>
+                  {% endfor %}
               </ul>
             </div>
           </div>
