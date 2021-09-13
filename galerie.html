@@ -31,37 +31,4 @@ layout: default
             {% endif %}
         {% endfor %}
     </div>
-
-        
-    <?php
-        $iteration = 1;	
-        foreach(array_merge(glob('gallery/*.JPG'), glob('gallery/*.jpg'), glob('gallery/*.jpeg')) as $img){
-            // create thumbnails on the fly if don't exist (first call slow)
-            $name = basename($img);
-
-            echo "<div class=\"col-sm-4\">
-                    <a class=\"gallery-image\" href=\"gallery/medium/".$name."\"
-                       data-fancybox-group=\"gallery\"";
-
-            $desc_file = 'gallery/'.$name.'.txt';
-
-            if(file_exists($desc_file)){
-                $myfile = fopen($desc_file, "r") or die("Unable to open file!");
-                $description = fread($myfile,filesize($desc_file));
-                fclose($myfile);
-
-                echo "title='".$description."'";
-            }
-
-            echo "><img class=\"img-responsive img-rounded\" src=\"gallery/small/".$name."\" alt=\"\" />
-                    </a>
-                </div>";
-            if($iteration % 3 == 0){
-                echo "</div><div class='row row-space'>";
-            }
-            $iteration++;
-        }
-
-    ?>
-    </div>
 </div>
