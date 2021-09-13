@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Iepenlaan 18 - {{ title }} </title>
+    <title>Iepenlaan 18 - {{ page.title }} </title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -67,13 +67,15 @@
 
                 {% assign mypages = site.pages | sort: "order" %}
                   {% for page_i in mypages %}
-                    {% if page_i.title == page.title %}
-                    <li class='active'>
-                    {% else %}
-                    <li>
-                    {% endif %}
-                    <a href="{{ page_i.url | absolute_url  }}">{{ page_i.title }}</a>
-                  </li>
+                    {% if page_i.title != "Startseite" %}
+                      {% if page_i.title == page.title %}
+                        <li class='active'>
+                      {% else %}
+                        <li>
+                      {% endif %}
+                          <a href="{{ page_i.url | absolute_url  }}">{{ page_i.title }}</a>
+                        </li>
+                  {% endif %}
                   {% endfor %}
               </ul>
             </div>
@@ -82,7 +84,7 @@
 
       </div>
     </div>
-
     {{ content }}
+    
    </body>
 </html>

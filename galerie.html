@@ -19,13 +19,12 @@ layout: default
 
 <div class="container main-content">
     <div class="row row-space">
-
         {% for image in site.static_files %}
             {% if image.path contains 'gallery/original' %}
             <div class="col-sm-4">
-                <a class="gallery-image" href="{{ image.path }}"
+                <a class="gallery-image" href="{{site.siterootmedia}}/gallery/medium/{{ image.path | split: '/' | last }}"
                 data-fancybox-group="gallery">
-                <img class="img-responsive img-rounded" src="{{ image.path }}" />
+                <img class="img-responsive img-rounded" src="{{site.siterootmedia}}/gallery/small/{{ image.path | split: '/' | last }}" />
                 </a>
             </div>
             {% endif %}

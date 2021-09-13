@@ -1,3 +1,5 @@
+siterootmedia: https://media.githubusercontent.com/media/jamie2605/iepenlaan-website/main/
+
 exclude:
   - .vscode/
   - generated_structure/
