@@ -1,3 +1,9 @@
+---
+title: Galerie
+layout: default
+---
+
+
 <script type="text/javascript" src="fancybox/jquery.fancybox.js?v=2.1.5"></script>
 <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
 
@@ -13,6 +19,8 @@
 
 <div class="container main-content">
     <div class="row row-space">
+
+        
     <?php
         $iteration = 1;	
         foreach(array_merge(glob('gallery/*.JPG'), glob('gallery/*.jpg'), glob('gallery/*.jpeg')) as $img){
