@@ -20,24 +20,24 @@ layout: default
 <div class="container main-content">
     <div class="row row-space">
 
+        {% for image in site.static_files %}
+            {% if image.path contains 'gallery/original' %}
+            <div class="col-sm-4">
+                <a class="gallery-image" href="{{ image.path }}"
+                data-fancybox-group="gallery">
+                <img class="img-responsive img-rounded" src="{{ image.path }}" />
+                </a>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
         
     <?php
         $iteration = 1;	
         foreach(array_merge(glob('gallery/*.JPG'), glob('gallery/*.jpg'), glob('gallery/*.jpeg')) as $img){
             // create thumbnails on the fly if don't exist (first call slow)
             $name = basename($img);
-
-            if(!file_exists('gallery/small/'.$name)){
-                $source = imagecreatefromjpeg($img);
-                $scaled = imagescale($source, 600, 400);
-                imagejpeg($scaled, 'gallery/small/'.$name);
-
-            }
-            if(!file_exists('gallery/medium/'.$name)){
-                $source = imagecreatefromjpeg($img);
-                $scaled = imagescale($source, 2400, 1600);
-                imagejpeg($scaled, 'gallery/medium/'.$name);
-            }
 
             echo "<div class=\"col-sm-4\">
                     <a class=\"gallery-image\" href=\"gallery/medium/".$name."\"
